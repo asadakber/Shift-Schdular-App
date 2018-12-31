@@ -1,0 +1,125 @@
+<nav style="background-color:black; opacity: 0.9" class="navbar navbar-expand-lg">
+    <a style="color:white; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="navbar-brand"><img style="margin-top:-8px;" width="40" height="40" src="../../../../assets/a.png"/><span style="margin-left: 10px; font-size: 30px;">Schedulr</span></a><a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="/employement">Employee Management <img style="color:white"  src="../../../../assets/iconfinder_group_309042 (4).png" /><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/schdules">Schedules<img style="color:white"  src="../../../../assets/iconfinder_clock_226587.png" /></a>
+        </li>
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+          
+        </form>
+    </div>
+  </nav>
+
+  <h3 style="text-align:center;position:absolute; margin-left:210px; margin-top:30px;  color:white;">Week at a glance</h3>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+        <!-- <div class="card card-11"> -->
+            <!-- <div class="card-body">
+              <div *ngFor="let employee of employeeList; let i = index">
+                <p style="color:white"><i style="color:royalblue">S.No: </i>{{i + 1}}</p>
+                <p style="color:white"><i style="color:royalblue">Name: </i>{{employee.firstname}}{{employee.lastname}}</p>
+              </div>
+              <div *ngFor="let time of timeScheduleList">
+                <p style="color:white"><i style="color:royalblue">Monday: </i>{{time.monday}}</p>
+                <p style="color:white"><i style="color:royalblue">Tuesday: </i>{{time.tuesday}}</p>
+                <p style="color:white"><i style="color:royalblue">Wednesday: </i>{{time.wednesday}}</p>
+                <p style="color:white"><i style="color:royalblue">Thursday: </i>{{time.thursday}}</p>
+                <p style="color:white"><i style="color:royalblue">Friday: </i>{{time.friday}}</p>
+                <p style="color:white"><i style="color:royalblue">saturday: </i>{{time.saturday}}</p>
+                <p style="color:white"><i style="color:royalblue">Sunday: </i>{{time.sunday}}</p>
+              </div>
+            </div>
+          </div> -->
+      <table class="table table-1 table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tues</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thus</th>
+            <th scope="col">Fri</th>
+            <th scope="col">Sat</th>
+            <th scope="col">Sun</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let employee of employeeList; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{employee.firstname}}{{employee.lastname}}</td>
+          </tr> -->
+          <tr *ngFor="let time of timeScheduleList; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{time.name}}</td>
+            <td>{{time.monday}}</td>
+            <td>{{time.tuesday}}</td>
+            <td>{{time.wednesday}}</td>
+            <td>{{time.thursday}}</td>
+            <td>{{time.friday}}</td>
+            <td>{{time.saturday}}</td>
+            <td>{{time.sunday}}</td>
+            <td><img style="cursor: pointer;" width="20" height="20" src="../../../../assets/download.svg" (click)="onUpdateTime(time)"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row ">
+      <div class="col-md-5"> 
+        <div  class="card card-2">
+          <div class="card-body">
+            <h5 class="card-title">Latest announcement</h5>
+            <span *ngFor="let schdulr of schdulrList">
+                <h3><i style="color:royalblue">Title: </i>{{schdulr.title}}</h3>
+                <p><i style="color:royalblue">Announcement: </i>{{schdulr.annoucement}}</p>
+                <img style="margin-left:440px;cursor: pointer;" width="20" height="20" src="../../../../assets/download.svg" (click)="onUpdate(schdulr)">
+                <!-- <button type="submit" class="btn btn-outline-primary" style="margin-left:380px;">Update</button> -->
+            </span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+      <div class="row ">
+        <div class="col-md-5"> 
+          <div  class="card card-3">
+            <div class="card-body">
+              <h5 class="card-title">Make an announcement</h5>
+              <form #schdularForm="ngForm" (ngSubmit)="onSubmit(schdularForm)">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input name="title" #title="ngModel" [(ngModel)]="schdulrservice.selectedSchdulr.title" style="background-color:transparent" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Announcement</label>
+                    <input name="annoucement" #annoucement="ngModel" [(ngModel)]="schdulrservice.selectedSchdulr.annoucement" style="background-color:transparent" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter announcement">
+                  </div>
+                  <button [disabled]="!schdularForm.valid" type="submit" class="btn btn-outline-primary">Submit</button>
+                 
+                </form>
+                <button style="margin-left:90px; margin-top:-65px;" (click)="resetForm()" type="submit" class="btn btn-outline-primary">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

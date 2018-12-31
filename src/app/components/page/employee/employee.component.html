@@ -1,0 +1,95 @@
+<nav style="opacity:0.8;background-color:black;" class="navbar ">
+  <a style="color:white; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="navbar-brand"><img style="margin-top:-8px;" width="40" height="40" src="../../../../assets/a.png"/><span style="margin-left: 10px; font-size: 30px;">Schedulr</span></a>
+  <form class="form-inline">
+    <button (click)="logout()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+  </form>
+</nav>
+<div class="container">
+  <div class="row ">
+    <div class="col-md-5"> 
+      <div  class="card card-2">
+        <div class="card-body">
+          <h5 class="card-title">Latest announcement</h5>
+          <div *ngFor="let schdulr of schdulrList">
+              <h3><i style="color:royalblue">Title: </i>{{schdulr.title}}</h3>
+              <p><i style="color:royalblue">Annoucement: </i>{{schdulr.annoucement}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 style="text-align:center;position:absolute; margin-left:210px; margin-top:30px;  color:white;">Week at a glance</h3>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <table class="table table-1 table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tues</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thus</th>
+            <th scope="col">Fri</th>
+            <th scope="col">Sat</th>
+            <th scope="col">Sun</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let time of timeScheduleList; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{time.name}}</td>
+                <td>{{time.monday}}</td>
+                <td>{{time.tuesday}}</td>
+                <td>{{time.wednesday}}</td>
+                <td>{{time.thursday}}</td>
+                <td>{{time.friday}}</td>
+                <td>{{time.saturday}}</td>
+                <td>{{time.sunday}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <table class="table table-2 table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">S.no</th>
+              <th scope="col">Firstname</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">AddressOne</th>
+              <th scope="col">AddressTwo</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Zip</th>
+              <th scope="col">Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+           <tr *ngFor="let employee of employeeList; let i = index">
+             <td>{{i + 1}}</td>
+             <td>{{employee.firstname}}</td>
+             <td>{{employee.lastname}}</td>
+             <td>{{employee.addressOne}}</td>
+             <td>{{employee.addressTwo}}</td>
+             <td>{{employee.city}}</td>
+             <td>{{employee.state}}</td>
+             <td>{{employee.zip}}</td>
+             <td>{{employee.phone}}</td>
+           </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+

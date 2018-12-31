@@ -1,0 +1,256 @@
+<nav style="background-color:black; opacity: 0.9" class="navbar navbar-expand-lg">
+  <a style="color:white; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" class="navbar-brand"><img style="margin-top:-8px;" width="40" height="40" src="../../../../assets/a.png"/><span style="margin-left: 10px; font-size: 30px;">Schedulr</span></a><a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a routerLink="/manager">Back</a></button>
+        
+      </form>
+  </div>
+</nav>
+
+
+<div class="container">
+<div class="row justify-content-center">
+  <div class="col-md-5">
+      <div class="card card-10">
+          <div class="card-body">
+                <h5 style="color:white" class="card-title">Schedule Editor</h5>
+                <form style="margin-top:30px;" #timeForm="ngForm" (ngSubmit)="AddTimeSchdule(timeForm)">
+                        <input  name="$key" #$key="ngModel" [(ngModel)]="schdulrservice.selectedTime.$key" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px; " type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter key">
+                    <div class="form-group">
+                                <label for="exampleInputEmail1"><i style="color:royalblue">Name: </i></label>
+                                <input  name="name" #name="ngModel" [(ngModel)]="schdulrservice.selectedTime.name" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px; " type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                              </div>
+                    <div class="form-group">
+                          <label for="exampleFormControlSelect1"><i style="color:royalblue">Monday:</i></label>
+                          <select  name="monday" #monday="ngModel" [(ngModel)]="schdulrservice.selectedTime.monday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                            <option value="8am-5pm">8am-5pm</option>
+                            <option value="9am-6pm">9am-6pm</option>
+                            <option value="10am-7pm">10am-7pm</option>
+                            <option value="11am-8pm">11am-8pm</option>
+                            <option value="12am-9pm">12am-9pm</option>
+                            <option value="1pm-10pm">1pm-10pm</option>
+                            <option value="2pm-11pm">2pm-11pm</option>
+                            <option value="3pm-12am">3pm-12am</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1"><i style="color:royalblue">Tuesday:</i></label>
+                            <select name="tuesday" #tuesday="ngModel" [(ngModel)]="schdulrservice.selectedTime.tuesday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                                <option value="8am-5pm">8am-5pm</option>
+                                <option value="9am-6pm">9am-6pm</option>
+                                <option value="10am-7pm">10am-7pm</option>
+                                <option value="11am-8pm">11am-8pm</option>
+                                <option value="12am-9pm">12am-9pm</option>
+                                <option value="1pm-10pm">1pm-10pm</option>
+                                <option value="2pm-11pm">2pm-11pm</option>
+                                <option value="3pm-12am">3pm-12am</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleFormControlSelect1"><i style="color:royalblue">Wednesday:</i></label>
+                              <select name="wednesday" #wednesday="ngModel" [(ngModel)]="schdulrservice.selectedTime.wednesday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                                  <option value="8am-5pm">8am-5pm</option>
+                                  <option value="9am-6pm">9am-6pm</option>
+                                  <option value="10am-7pm">10am-7pm</option>
+                                  <option value="11am-8pm">11am-8pm</option>
+                                  <option value="12am-9pm">12am-9pm</option>
+                                  <option value="1pm-10pm">1pm-10pm</option>
+                                  <option value="2pm-11pm">2pm-11pm</option>
+                                  <option value="3pm-12am">3pm-12am</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"><i style="color:royalblue">Thursday:</i></label>
+                                <select name="thursday" #thursday="ngModel" [(ngModel)]="schdulrservice.selectedTime.thursday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                                    <option value="8am-5pm">8am-5pm</option>
+                                    <option value="9am-6pm">9am-6pm</option>
+                                    <option value="10am-7pm">10am-7pm</option>
+                                    <option value="11am-8pm">11am-8pm</option>
+                                    <option value="12am-9pm">12am-9pm</option>
+                                    <option value="1pm-10pm">1pm-10pm</option>
+                                    <option value="2pm-11pm">2pm-11pm</option>
+                                    <option value="3pm-12am">3pm-12am</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleFormControlSelect1"><i style="color:royalblue">Friday:</i></label>
+                                  <select name="friday" #friday="ngModel" [(ngModel)]="schdulrservice.selectedTime.friday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                                      <option value="8am-5pm">8am-5pm</option>
+                            <option value="9am-6pm">9am-6pm</option>
+                            <option value="10am-7pm">10am-7pm</option>
+                            <option value="11am-8pm">11am-8pm</option>
+                            <option value="12am-9pm">12am-9pm</option>
+                            <option value="1pm-10pm">1pm-10pm</option>
+                            <option value="2pm-11pm">2pm-11pm</option>
+                            <option value="3pm-12am">3pm-12am</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1"><i style="color:royalblue">Saturday:</i></label>
+                                    <select name="saturday" #saturday="ngModel" [(ngModel)]="schdulrservice.selectedTime.saturday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                                        <option value="8am-5pm">8am-5pm</option>
+                                        <option value="9am-6pm">9am-6pm</option>
+                                        <option value="10am-7pm">10am-7pm</option>
+                                        <option value="11am-8pm">11am-8pm</option>
+                                        <option value="12am-9pm">12am-9pm</option>
+                                        <option value="1pm-10pm">1pm-10pm</option>
+                                        <option value="2pm-11pm">2pm-11pm</option>
+                                        <option value="3pm-12am">3pm-12am</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleFormControlSelect1"><i style="color:royalblue">Sunday:</i></label>
+                                      <select name="sunday" #sunday="ngModel" [(ngModel)]="schdulrservice.selectedTime.sunday" style="background-color:transparent;margin-left:100px;margin-top:-35px;width: 650px;" class="form-control" id="exampleFormControlSelect1">
+                                          <option value="8am-5pm">8am-5pm</option>
+                                          <option value="9am-6pm">9am-6pm</option>
+                                          <option value="10am-7pm">10am-7pm</option>
+                                          <option value="11am-8pm">11am-8pm</option>
+                                          <option value="12am-9pm">12am-9pm</option>
+                                          <option value="1pm-10pm">1pm-10pm</option>
+                                          <option value="2pm-11pm">2pm-11pm</option>
+                                          <option value="3pm-12am">3pm-12am</option>
+                                      </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-success">Add</button>
+                                  
+                      </form>
+                      <button (click)="resetForm()" style="margin-left:60px;margin-top:-67px;" type="submit" class="btn btn-outline-success">Clear</button>
+                    
+           <div>
+           </div>
+          </div>
+        </div>
+    <!-- <table class="table table-1 table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">S.no</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mon</th>
+          <th scope="col">Tues</th>
+          <th scope="col">Wed</th>
+          <th scope="col">Thus</th>
+          <th scope="col">Fri</th>
+          <th scope="col">Sat</th>
+          <th scope="col">Sun</th>
+          <th scope="col">Add</th>
+          <th scope="col">Clear</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+          <tr *ngFor="let employee of employeeList; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{employee.firstname}}{{employee.lastname}}</td>
+              
+              <td> 
+               
+                <div class="form-group">
+                  <select  style="width:100px; background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                    <option value="8am-5pm">8am-5pm</option>
+                    <option value="9am-6pm">9am-6pm</option>
+                    <option value="10am-7pm">10am-7pm</option>
+                    <option value="11am-8pm">11am-8pm</option>
+                    <option value="12am-9pm">12am-9pm</option>
+                    <option value="1pm-10pm">1pm-10pm</option>
+                    <option value="2pm-11pm">2pm-11pm</option>
+                    <option value="3pm-12am">3pm-12am</option>
+                  </select>
+                </div></td>
+
+                <td> <div class="form-group">
+                    <select style="width:100px;background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                        <option value="8am-5pm">8am-5pm</option>
+                        <option value="9am-6pm">9am-6pm</option>
+                        <option value="10am-7pm">10am-7pm</option>
+                        <option value="11am-8pm">11am-8pm</option>
+                        <option value="12am-9pm">12am-9pm</option>
+                        <option value="1pm-10pm">1pm-10pm</option>
+                        <option value="2pm-11pm">2pm-11pm</option>
+                        <option value="3pm-12am">3pm-12am</option>
+                    </select>
+                  </div></td>
+
+                  <td> <div class="form-group">
+                      <select style="width:100px;background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                          <option value="8am-5pm">8am-5pm</option>
+                          <option value="9am-6pm">9am-6pm</option>
+                          <option value="10am-7pm">10am-7pm</option>
+                          <option value="11am-8pm">11am-8pm</option>
+                          <option value="12am-9pm">12am-9pm</option>
+                          <option value="1pm-10pm">1pm-10pm</option>
+                          <option value="2pm-11pm">2pm-11pm</option>
+                          <option value="3pm-12am">3pm-12am</option>
+                      </select>
+                    </div></td>
+
+                    <td> <div class="form-group">
+                        <select  style="width:100px;background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                            <option value="8am-5pm">8am-5pm</option>
+                            <option value="9am-6pm">9am-6pm</option>
+                            <option value="10am-7pm">10am-7pm</option>
+                            <option value="11am-8pm">11am-8pm</option>
+                            <option value="12am-9pm">12am-9pm</option>
+                            <option value="1pm-10pm">1pm-10pm</option>
+                            <option value="2pm-11pm">2pm-11pm</option>
+                            <option value="3pm-12am">3pm-12am</option>
+                        </select>
+                      </div></td>
+
+                      <td> <div class="form-group">
+                          <select  style="width:100px;background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                              <option value="8am-5pm">8am-5pm</option>
+                              <option value="9am-6pm">9am-6pm</option>
+                              <option value="10am-7pm">10am-7pm</option>
+                              <option value="11am-8pm">11am-8pm</option>
+                              <option value="12am-9pm">12am-9pm</option>
+                              <option value="1pm-10pm">1pm-10pm</option>
+                              <option value="2pm-11pm">2pm-11pm</option>
+                              <option value="3pm-12am">3pm-12am</option>
+                          </select>
+                        </div></td>
+
+                        <td> <div class="form-group">
+                            <select  style="width:100px;background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                                <option value="8am-5pm">8am-5pm</option>
+                                <option value="9am-6pm">9am-6pm</option>
+                                <option value="10am-7pm">10am-7pm</option>
+                                <option value="11am-8pm">11am-8pm</option>
+                                <option value="12am-9pm">12am-9pm</option>
+                                <option value="1pm-10pm">1pm-10pm</option>
+                                <option value="2pm-11pm">2pm-11pm</option>
+                                <option value="3pm-12am">3pm-12am</option>
+                            </select>
+                          </div></td>
+
+                          <td> <div class="form-group">
+                              <select style="width:100px;background-color:transparent" class="form-control" id="exampleFormControlSelect1">
+                                  <option value="8am-5pm">8am-5pm</option>
+                                  <option value="9am-6pm">9am-6pm</option>
+                                  <option value="10am-7pm">10am-7pm</option>
+                                  <option value="11am-8pm">11am-8pm</option>
+                                  <option value="12am-9pm">12am-9pm</option>
+                                  <option value="1pm-10pm">1pm-10pm</option>
+                                  <option value="2pm-11pm">2pm-11pm</option>
+                                  <option value="3pm-12am">3pm-12am</option>
+                              </select>
+                            </div></td>
+
+                            <td><button (click)="AddTimeSchdule()" type="button" class="btn  btn-outline-success">Add</button>
+                            
+                            </td>
+                         
+                            <td><button type="button" class="btn btn-outline-success" (click)="clear()">Clear</button></td>
+                
+            </tr>
+      </tbody>
+    </table> -->
+  </div>
+</div>
+</div>
+
+

@@ -1,0 +1,31 @@
+.card-2 {
+    margin-top:30px;
+    width: 500px;
+    margin-left: 80px;
+    opacity: 0.9;
+    background-color:black;
+    color:white;
+    position: absolute;
+}
+
+.table-1 {
+    margin-top: 90px;
+    width: 1000px;
+    margin-left: -250px;
+    opacity: 0.9;
+    background-color:black;
+}
+
+.card-3 {
+    margin-top: 30px;
+    width: 480px;
+    margin-left: 600px;
+    opacity: 0.9;
+    background-color:black;
+    color:white;
+}
+
+.card-4 {
+    background-color:black;
+    opacity: 0.9;
+}

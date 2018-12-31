@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyDRE9UL8ruGg4sOZenzZJG8WBFW1k6nFAw",
+    authDomain: "shift-schdular-app.firebaseapp.com",
+    databaseURL: "https://shift-schdular-app.firebaseio.com",
+    projectId: "shift-schdular-app",
+    storageBucket: "shift-schdular-app.appspot.com",
+    messagingSenderId: "103113788085"
+  }
 };
 
 /*
